@@ -1,5 +1,5 @@
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+[ -z "${PS1}" ] && return
 
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
@@ -19,12 +19,15 @@ if [ "$TERM" != "dumb" ]; then
     #alias vdir='ls --color=auto --format=long'
 fi
 
-WHITE="\[\033[0;37m\]" 
-GREEN="\[\033[0;32m\]" 
-RED="\[\033[0;31m\]" 
-CYAN="\[\033[0;36m\]"
-BOLD="\[\033[1m\]" 
-BOLDEND="\[\033[0m\]" 
+alias auth="view ~/.auth.aes" 
+alias authedit="vim ~/.auth.aes" 
+alias s="sudo bash" 
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+alias aptu='sudo apt-get update'
+alias aptug='sudo apt-get upgrade'
+alias aptudg='sudo apt-get dist-upgrade'
 
 function git_prompt () {
     if ! git rev-parse --git-dir > /dev/null 2>&1; then
@@ -35,29 +38,14 @@ function git_prompt () {
     echo "$RED[$CYAN${git_branch}$RED]"
 }
 
-PROMPT_COMMAND='PS1="$RED$BOLD[$WHITE\t$RED][$WHITE\u@\h$RED][$WHITE\w$RED]$(git_prompt)$RED[$GREEN\$?$RED]$WHITE\\\$$RED> $BOLDEND"'
-#export TERM=xterm 
-export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin:/usr/X11R6/bin:/opt/VRTSvcs/bin" 
-
-alias auth="view ~/.auth.aes" 
-alias authedit="vim ~/.auth.aes" 
-alias s="sudo bash" 
-#alias tmux="LD_LIBRARY_PATH=/home/s3h2es/fake_root/linux/lib/ /home/s3h2es/fake_root/linux/bin/tmux" 
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -CF'
-alias dmesg='dmesg -T'
-alias aptu='sudo apt-get update'
-alias aptug='sudo apt-get upgrade'
-alias aptudg='sudo apt-get dist-upgrade'
-
 function pwgen() { 
-        local l=$1 
-        [ "$1" == "" ] && l=8 
-        tr -dc [:graph:] < /dev/urandom | head -c $l | xargs 
+        local length=${1} 
+        [ "${1}" == "" ] && length=8 
+        tr -dc [:graph:] < /dev/urandom | head -c ${length}
+        echo	
 }
 
-function vir {
+function vir() {
 	[ -f RCS/"$1",v ] && { rcsdiff -q "$1" > /dev/null || { echo 'Ups ups... someone forgot co/ci !!!'; return 1; }; };
 	co -l "$1" || { ci "$1"; co -l "$1"; };
 	/usr/bin/vim "$1";
@@ -79,4 +67,21 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-w >&2
+WHITE="\[\033[0;37m\]" 
+GREEN="\[\033[0;32m\]" 
+RED="\[\033[0;31m\]" 
+CYAN="\[\033[0;36m\]"
+BOLD="\[\033[1m\]" 
+BOLDEND="\[\033[0m\]" 
+
+PROMPT_COMMAND='PS1="$RED$BOLD[$WHITE\t$RED][$WHITE\u@\h$RED][$WHITE\w$RED]$(git_prompt)$RED[$GREEN\$?$RED]$WHITE\\\$$RED> $BOLDEND"'
+export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin:/usr/X11R6/bin"
+
+# Like to see people logged on the system
+if [[ ${TERM} != "dumb" ]]
+then
+	w >&2
+fi
+
+# Needed for proper vim background in tmux
+export TERM="xterm-256color"
