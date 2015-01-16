@@ -1,35 +1,48 @@
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-
-" let Vundle manage Vundle, required
-"Plugin 'gmarik/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
- " plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
- " Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-
-"call vundle#end() 
-
 set nocompatible
 syntax on
 set encoding=utf-8
+" Word wrap without line breaks
 set wrap
+set linebreak
+
 set backspace=indent,eol,start
+
+" Highlight all search pattern matches and other stuff
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set background=dark
-set ic
-filetype indent plugin on
-set modeline
-colorscheme solarized
 
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
+filetype indent plugin on
+
+set modeline
+
+" Stuff to workaround problem with background in tmux
+" Fixing Vim's Background Color Erase for 256-color tmux
+"set t_ut=
+"set term=xterm-256color
+set term=screen-256color
+
+colorscheme badwolf
+set background=dark
+
+" Want line numbers
+set nu
+" Want cursorline
+set cursorline
+" Override default settings on tabexpand
+autocmd FileType python setlocal tabstop=4 noexpandtab
+set noexpandtab
+set tabstop=4
+
+" Want line numbers
+set nu
+" Changing default colors
+hi LineNr	cterm=None ctermfg=DarkCyan ctermbg=None
+" Want cursorline
+set cursorline
+
+" Backup and tmp directory modification
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
