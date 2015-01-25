@@ -63,6 +63,36 @@ function vacuum-firefox-databases () {
 	done
 }
 
+function swap-count() {
+	PIDs="$(ls -d /proc/[0-9]* | cut -d "/" -f 3 | sort -n)"
+	for PID in ${PIDs}
+	do
+		if [[ -f /proc/${PID}/status ]];
+		then
+			egrep VmSwap /proc/${PID}/status
+		fi
+	done | awk '{ SUM += $2} END {print SUM/1024 "MB"}'
+}
+
+function swap-list() {
+	PIDs="$(ls -d /proc/[0-9]* | sort -n | cut -d "/" -f 3 | sort -n)"
+	echo "Total: $(swap-count)"
+	for PID in ${PIDs}
+	do
+		if [[ -f /proc/${PID}/status ]];
+		then
+			procName=$(egrep "Name" /proc/${PID}/status | awk '{print $2}')
+			swapCount=$(egrep "VmSwap" /proc/${PID}/status | awk '{print $2}')
+			if [[ ${swapCount} -ne 0 ]];
+			then
+				echo -n "PID: ${PID}"
+				echo -n " | Name: ${procName}"
+				echo " | Swap: ${swapCount} kB"
+			fi
+		fi
+	done | sort -rn -k 8
+}
+
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
