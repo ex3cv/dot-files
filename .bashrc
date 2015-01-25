@@ -93,6 +93,15 @@ function swap-list() {
 	done | sort -rn -k 8
 }
 
+function drop-caches() {
+	if [[ ${1} == 1 || ${1} == 2 || ${1} == 3 ]];
+	then
+		sudo sync
+		sudo sync
+		sudo bash -c "echo ${1} > /proc/sys/vm/drop_caches"
+	fi
+}
+
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
