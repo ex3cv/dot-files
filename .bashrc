@@ -123,4 +123,4 @@ then
 fi
 
 # Needed for proper vim background in tmux
-export TERM="xterm-256color"
+export TERM="screen-256color"
