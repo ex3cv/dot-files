@@ -22,6 +22,13 @@ set modeline
 "set t_ut=
 "set term=xterm-256color
 set term=screen-256color
+" Handle tmux $TERM quirks in vim
+if $TERM =~ '^screen-256color'
+	map <Esc>OH <Home>
+	map! <Esc>OH <Home>
+	map <Esc>OF <End>
+	map! <Esc>OF <End>
+endif
 
 colorscheme badwolf
 set background=dark
