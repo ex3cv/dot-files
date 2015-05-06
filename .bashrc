@@ -25,6 +25,7 @@ alias s="sudo bash"
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+alias lla='ls -la'
 alias aptu='sudo apt-get update'
 alias aptug='sudo apt-get upgrade'
 alias aptudg='sudo apt-get dist-upgrade'
