@@ -103,6 +103,19 @@ function drop-caches() {
 	fi
 }
 
+# settitle() and ssh() for tmux and ssh sessions
+function settitle() {
+	printf "\033k$1\033\\"
+}
+
+function ssh() {
+	settitle "$*"
+	command ssh "$@"
+	settitle "bash"
+}
+# end of settitle() and ssh() for tmux and ssh sessions
+
+
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
