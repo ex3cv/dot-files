@@ -19,9 +19,8 @@ set modeline
 
 " Stuff to workaround problem with background in tmux
 " Fixing Vim's Background Color Erase for 256-color tmux
-"set t_ut=
-"set term=xterm-256color
 set term=screen-256color
+
 " Handle tmux $TERM quirks in vim
 if $TERM =~ '^screen-256color'
 	map <Esc>OH <Home>
@@ -41,9 +40,11 @@ set cursorline
 autocmd FileType python setlocal tabstop=4 noexpandtab
 set noexpandtab
 set tabstop=4
+set autoindent
+set copyindent
+set shiftwidth=4
+set shiftround
 
-" Want line numbers
-set nu
 " Changing default colors
 hi LineNr	cterm=None ctermfg=DarkCyan ctermbg=None
 " Want cursorline
