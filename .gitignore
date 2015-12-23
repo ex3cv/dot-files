@@ -1,3 +1,5 @@
 .vim/.netrwhist
-.vim/backup*
-.vim/tmp*
+.vim/backup/*
+!.vim/backup/.keepme
+.vim/tmp/*
+!.vim/tmp/.keepme
