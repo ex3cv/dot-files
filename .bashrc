@@ -1,3 +1,5 @@
+# .bashrc prepared by Remigiusz Świc
+
 # If not running interactively, don't do anything
 [ -z "${PS1}" ] && return
 
@@ -30,6 +32,12 @@ alias ll2='stat -c "%A %a %n"'
 alias aptu='sudo apt-get update'
 alias aptug='sudo apt-get upgrade'
 alias aptudg='sudo apt-get dist-upgrade'
+
+# Puppet specific aliases
+alias pmg='puppet module generate'
+alias pat='puppet agent -t'
+alias pad='puppet agent --disable'
+alias pae='puppet agent --enable'
 
 function git_prompt () {
     if ! git rev-parse --git-dir > /dev/null 2>&1; then
@@ -109,11 +117,15 @@ function settitle() {
 	printf "\033k$1\033\\"
 }
 
-function ssh() {
-	settitle "$*"
-	command ssh "$@"
-	settitle "bash"
-}
+#function rssh() {
+#	ssh -t "$1" "tmux new-session -s foobar"
+#}
+
+#function lssh() {
+#	settitle "$*"
+#	command ssh -t "$@" "tmux new -A foobar";
+#	settitle "bash"
+#}
 # end of settitle() and ssh() for tmux and ssh sessions
 
 
@@ -138,4 +150,5 @@ then
 fi
 
 # Needed for proper vim background in tmux
-export TERM="screen-256color"
+export TERM='screen-256color'
+export EDITOR='vim'
