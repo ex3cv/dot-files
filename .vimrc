@@ -22,6 +22,9 @@ Plugin 'flazz/vim-colorschemes'
 
 Plugin 'puppetlabs/puppet-syntax-vim'
 
+"True Sublime Text style multiple selections for Vim
+Plugin 'terryma/vim-multiple-cursors'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
