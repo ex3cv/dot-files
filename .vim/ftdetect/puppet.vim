@@ -1,0 +1,1 @@
+../../dev/puppet-syntax-vim/ftdetect/puppet.vim
