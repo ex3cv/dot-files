@@ -35,8 +35,8 @@ let g:lightline = {
       \   'readonly': 'LightLineReadonly',
       \   'filename': 'LightLineFilename'
       \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
 
 function! LightLineModified()

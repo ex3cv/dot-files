@@ -1,1 +1,0 @@
-../../dev/puppet-syntax-vim/ftplugin/puppet.vim
