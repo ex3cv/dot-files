@@ -18,6 +18,10 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
+Plugin 'flazz/vim-colorschemes'
+
+Plugin 'puppetlabs/puppet-syntax-vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
