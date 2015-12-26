@@ -122,8 +122,8 @@ if $TERM =~ '^screen-256color'
 	map! <Esc>OF <End>
 endif
 
-colorscheme badwolf
-"set background=dark
+colorscheme gruvbox
+set background=dark
 
 " Want line numbers
 set nu
