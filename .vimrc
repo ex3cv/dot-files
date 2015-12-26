@@ -19,6 +19,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
 Plugin 'flazz/vim-colorschemes'
+Plugin 'shinchu/lightline-gruvbox.vim'
 
 Plugin 'puppetlabs/puppet-syntax-vim'
 
@@ -33,6 +34,7 @@ set laststatus=2
 
 " lightline and fugitive toghether
 let g:lightline = {
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'readonly', 'filename' ] ]
