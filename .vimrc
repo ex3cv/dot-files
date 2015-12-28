@@ -23,6 +23,8 @@ Plugin 'shinchu/lightline-gruvbox.vim'
 
 Plugin 'puppetlabs/puppet-syntax-vim'
 
+Plugin 'scrooloose/syntastic'
+
 "True Sublime Text style multiple selections for Vim
 Plugin 'terryma/vim-multiple-cursors'
 
