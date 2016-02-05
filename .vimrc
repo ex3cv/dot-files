@@ -27,6 +27,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'shinchu/lightline-gruvbox.vim'
 " syntax for puppet maintained with Vundel
 Plugin 'puppetlabs/puppet-syntax-vim'
+" syntax highlights for logstash conf files
+Plugin 'robbles/logstash.vim'
 
 "True Sublime Text style multiple selections for Vim
 Plugin 'terryma/vim-multiple-cursors'
