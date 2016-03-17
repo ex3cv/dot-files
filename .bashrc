@@ -143,7 +143,7 @@ CYAN="\[\033[0;36m\]"
 BOLD="\[\033[1m\]" 
 BOLDEND="\[\033[0m\]" 
 
-PROMPT_COMMAND='PS1="$RED$BOLD[$WHITE\t$RED][$WHITE\u@\h$RED][$WHITE\w$RED]$(git_prompt)$RED[$GREEN\$?$RED]\n$WHITE\\\$$RED> $BOLDEND"'
+PROMPT_COMMAND='PS1="$RED$BOLD[$WHITE\t$RED$BOLD][$WHITE\u@\h$RED$BOLD][$WHITE\w$RED$BOLD]$(git_prompt)$RED$BOLD[$GREEN\$?$RED$BOLD]\n$WHITE$BOLD\\\$$RED$BOLD> $BOLDEND"'
 export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin:/usr/X11R6/bin"
 
 # Like to see people logged on the system
