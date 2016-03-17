@@ -21,6 +21,9 @@ if [ "$TERM" != "dumb" ]; then
     #alias vdir='ls --color=auto --format=long'
 fi
 
+# gvm and goland stuff
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
 alias auth="view ~/.auth.aes" 
 alias authedit="vim ~/.auth.aes" 
 alias s="sudo bash" 
@@ -140,7 +143,7 @@ CYAN="\[\033[0;36m\]"
 BOLD="\[\033[1m\]" 
 BOLDEND="\[\033[0m\]" 
 
-PROMPT_COMMAND='PS1="$RED$BOLD[$WHITE\t$RED][$WHITE\u@\h$RED][$WHITE\w$RED]$(git_prompt)$RED[$GREEN\$?$RED]$WHITE\\\$$RED> $BOLDEND"'
+PROMPT_COMMAND='PS1="$RED$BOLD[$WHITE\t$RED][$WHITE\u@\h$RED][$WHITE\w$RED]$(git_prompt)$RED[$GREEN\$?$RED]\n$WHITE\\\$$RED> $BOLDEND"'
 export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin:/usr/X11R6/bin"
 
 # Like to see people logged on the system
