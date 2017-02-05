@@ -48,7 +48,14 @@ function git_prompt () {
     fi
  
     git_branch=$(git branch 2>/dev/null | sed -n '/^\*/s/^\* //p') 
-    echo "$RED[$CYAN${git_branch}$RED]"
+    echo "$RED$BOLD[$CYAN${git_branch}$RED$BOLD]"
+}
+
+function jobs_count {
+    cnt=$(jobs -l | wc -l)
+    if [ $cnt -gt 0 ]; then
+        echo "$RED$BOLD[$CYAN${cnt}$RED$BOLD]"
+    fi
 }
 
 function pwgen() { 
@@ -143,7 +150,7 @@ CYAN="\[\033[0;36m\]"
 BOLD="\[\033[1m\]" 
 BOLDEND="\[\033[0m\]" 
 
-PROMPT_COMMAND='PS1="$RED$BOLD[$WHITE\t$RED$BOLD][$WHITE\u@\h$RED$BOLD][$WHITE\w$RED$BOLD]$(git_prompt)$RED$BOLD[$GREEN\$?$RED$BOLD]\n$WHITE$BOLD\\\$$RED$BOLD> $BOLDEND"'
+PROMPT_COMMAND='PS1="$(jobs_count)$RED$BOLD[$WHITE\t$RED$BOLD][$WHITE\u@\h$RED$BOLD][$WHITE\w$RED$BOLD]$(git_prompt)$RED$BOLD[$GREEN\$?$RED$BOLD]\n$WHITE$BOLD\\\$$RED$BOLD> $BOLDEND"'
 export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin:/usr/X11R6/bin"
 
 # Like to see people logged on the system
@@ -155,3 +162,5 @@ fi
 # Needed for proper vim background in tmux
 export TERM='screen-256color'
 export EDITOR='vim'
+
+umask 022

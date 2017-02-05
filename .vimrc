@@ -2,7 +2,7 @@ set nocompatible
 set encoding=utf-8
 scriptencoding utf-8
 
-filetype off
+filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -10,93 +10,34 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-" status line
 Plugin 'itchyny/lightline.vim'
-" vim and git
 Plugin 'tpope/vim-fugitive'
 
-" around snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
-" set of several colorschenes...
 Plugin 'flazz/vim-colorschemes'
-" ... and integration of lightline with gruvbox
 Plugin 'shinchu/lightline-gruvbox.vim'
-" syntax for puppet maintained with Vundel
+
 Plugin 'puppetlabs/puppet-syntax-vim'
-" syntax highlights for logstash conf files
-Plugin 'robbles/logstash.vim'
 
 "True Sublime Text style multiple selections for Vim
 Plugin 'terryma/vim-multiple-cursors'
 
-" undo super tool
-Plugin 'sjl/gundo.vim'
-" search tool
-Plugin 'mileszs/ack.vim'
-" vim and tmux
-Plugin 'christoomey/vim-tmux-navigator'
-" file tree
-Plugin 'scrooloose/nerdtree'
-" searching files through the project
-Plugin 'ctrlpvim/ctrlp.vim'
-" ctags integration for vim
-Plugin 'majutsushi/tagbar'
-" automatic closing of quotes, parenthesis, brackets, etc.
-Plugin 'raimondi/delimitmate'
-" syntax checking plugin
-Plugin 'scrooloose/syntastic'
+Plugin 'valloric/youcompleteme'
+
+" Syntax checking async
+Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
-" NERDtree section
-" NERDtree quit helper
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-map <C-t> :NERDTreeToggle<CR>
-" open NERDtree by default
-"autocmd vimenter * NERDTree
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" end of NERDtree section
-
-" Syntastic section
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-" end of Syntastic section
-
-" Tagbar section
-" remap
-nmap <F8> :TagbarToggle<CR>
-" additions for tagbar
-" puppet
-let g:tagbar_type_puppet = {
-    \ 'ctagstype': 'puppet',
-    \ 'kinds': [
-        \'c:class',
-        \'s:site',
-        \'n:node',
-        \'d:definition'
-      \]
-    \}
-" end of Tagbar section
-
-" mapping for gundo
-nnoremap <F5> :GundoToggle<CR>
-
-" Lightline section
 " needed by lightline plugin
 set laststatus=2
-" ;ightline and fugitive toghether
+
+" lightline and fugitive toghether
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
@@ -147,7 +88,8 @@ function! LightLineFugitive()
   endif
   return ''
 endfunction
-" end of Lightline section
+
+" end of lightline and fugitive toghether
 
 syntax on
 " Word wrap without line breaks
@@ -202,7 +144,7 @@ set shiftwidth=4
 set shiftround
 
 " Changing default colors
-hi LineNr cterm=None ctermfg=DarkCyan ctermbg=None
+hi LineNr	cterm=None ctermfg=DarkCyan ctermbg=None
 " Want cursorline
 set cursorline
 
