@@ -15,7 +15,7 @@ Plugin 'tpope/vim-fugitive'
 
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 
 Plugin 'flazz/vim-colorschemes'
