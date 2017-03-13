@@ -18,6 +18,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 
+Plugin 'morhetz/gruvbox'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'shinchu/lightline-gruvbox.vim'
 
