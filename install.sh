@@ -26,3 +26,4 @@ fc-cache -vf ~/.fonts
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
+~/.vim/bundle/youcompleteme/install.py

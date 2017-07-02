@@ -15,6 +15,7 @@ Plugin 'tpope/vim-fugitive'
 
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
+
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 
@@ -24,13 +25,21 @@ Plugin 'shinchu/lightline-gruvbox.vim'
 
 Plugin 'puppetlabs/puppet-syntax-vim'
 
-"True Sublime Text style multiple selections for Vim
+" True Sublime Text style multiple selections for Vim
 Plugin 'terryma/vim-multiple-cursors'
 
 Plugin 'valloric/youcompleteme'
 
 " Syntax checking async
 Plugin 'w0rp/ale'
+
+" git diff on a gutter
+Plugin 'airblade/vim-gitgutter'
+
+" indent  guides
+Plugin 'yggdroot/indentline'
+
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -128,6 +137,9 @@ if $TERM =~ '^screen-256color'
 	map! <Esc>OF <End>
 endif
 
+let g:indentLine_setColors = 10
+let g:indentLine_char = '.'
+
 colorscheme gruvbox
 set background=dark
 
@@ -136,7 +148,6 @@ set nu
 " Want cursorline
 set cursorline
 " Override default settings on tabexpand
-autocmd FileType python setlocal tabstop=4
 set expandtab
 set tabstop=4
 set autoindent
@@ -145,7 +156,7 @@ set shiftwidth=4
 set shiftround
 
 " Changing default colors
-hi LineNr	cterm=None ctermfg=DarkCyan ctermbg=None
+hi LineNr cterm=None ctermfg=DarkCyan ctermbg=None
 " Want cursorline
 set cursorline
 
@@ -153,3 +164,6 @@ set cursorline
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
+
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
